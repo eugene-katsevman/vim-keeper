@@ -15,12 +15,12 @@ function! KeeperCheck()
 endfunction
 
 function! KeeperUndo()
-    s/\[done\]//g
+    s/\[done\] \?//g
 endfunction
 
 function! KeeperDone()
     s/ \+$//e
-    normal! A [done]
+    normal! I[done] 
 endfunction
 
 nnoremap <buffer> <localleader>k :silent call KeeperCheck()<cr>

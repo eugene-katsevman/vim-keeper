@@ -14,7 +14,18 @@ function! KeeperCheck()
     exe l:oldn . "wincmd w"
 endfunction
 
+function! KeeperUndo()
+    s/\[done\]//g
+endfunction
+
+function! KeeperDone()
+    s/ \+$//e
+    normal! A [done]
+endfunction
+
 nnoremap <buffer> <localleader>k :silent call KeeperCheck()<cr>
+nnoremap <buffer> <localleader>d :call KeeperDone()<cr>
+nnoremap <buffer> <localleader>u :call KeeperUndo()<cr>
 
 augroup KeeperGroup
     autocmd!

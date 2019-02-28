@@ -30,4 +30,6 @@ nnoremap <buffer> <localleader>u :call KeeperUndo()<cr>
 augroup KeeperGroup
     autocmd!
     autocmd BufWritePost *.todo call KeeperCheck()
+    autocmd BufEnter /tmp/keeper if (winnr("$") == 1) | q | endif
 augroup END
+
